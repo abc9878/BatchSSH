@@ -3,12 +3,11 @@ import argparse
 import csv
 import os
 import paramiko
-import time
-import traceback
-import shutil
 import re
 import shutil
 import socket
+import time
+import traceback
 
 
 def get_list():
@@ -279,7 +278,7 @@ if __name__ == '__main__':
 		logs_dir = '.'
 	LOG_FILE = os.path.join(logs_dir, f"{time.strftime('%Y-%m-%d')}-{time.strftime('%H%M%S')}.log")
 
-	# 每次执行前将旧的 linkfail/loginfail CSV 移入 Archive 子目录并追加时间戳（格式 YYDDMM-hhmmss）
+	# 每次执行前将旧的 linkfail/loginfail CSV 移入 Archive 子目录并追加时间戳（格式 YYMMDD-hhmmss）
 	def archive_csv(filename):
 		if not os.path.exists(filename):
 			return
